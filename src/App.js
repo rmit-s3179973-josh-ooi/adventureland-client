@@ -1,28 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import Navigation from './components/navigation';
 import './App.css';
 
+
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    constructor(){
+        super();
+
+        this.state = {
+          category : []
+        }
+
+    }
+
+    getCategory() {
+
+        axios.get('http://localhost:8000/api/categories')
+        .then((response) =>{
+        
+        this.setState({ category : response.data});
+        })
+        .catch( (error) => {
+        console.log(error);
+        });        
+    }
+
+    componentWillMount() {
+        this.getCategory();
+    }
+
+    componentDidMount() {
+        this.getCategory();
+    }
+
+    navigate(name){
+        console.log(name);
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="left">
+                    <Navigation categories={this.state.category} navigate={this.navigate.bind(this)} />
+                </div>
+                <div className="right"></div>
+            </div>
+        );
+    }
 }
 
 export default App;
