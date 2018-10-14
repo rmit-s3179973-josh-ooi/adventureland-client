@@ -1,0 +1,232 @@
+@import '_default';
+
+.App{
+	@include span(1);
+
+	.left{
+		position: absolute;
+		height:100%;
+		background: $dashboard_sidebar_bg;
+		@include span(2/10);
+
+		.logo{
+			@include span(1);
+			@include font-lobster(normal,$white,40px);
+			padding:2em 0;
+			text-align: center;
+			background: $dashboard_sidebar_bg_alt;
+			float:left;
+
+			a:link{
+				text-decoration: none;					
+			}
+				
+		}
+
+		.nav{
+			@include span(1);
+			@include font-roboto(normal,$white,20px);			
+
+			li{
+				margin:0.5em 0;
+			}
+
+			>ul{
+				@include span(1);
+				padding: 0 1em;
+				
+			}
+
+			.categories{
+				 >ul {
+					margin-left:1.5em;
+					@include font-roboto(normal, $gray, 19px);
+
+					li{
+						margin:0.75em 0;
+					}
+				 }
+			}
+		}
+	}	
+
+	.right {
+		
+		height:100%;
+		@include span(8/10);
+		@include move(2/10, $col-or-span: span);
+		padding:1em 2em;
+		position: absolute;
+		overflow:scroll;
+
+		>div {
+			@include span(1);
+		}
+	}
+}
+
+.event-item{
+	@include span(1);
+	margin: 0.3em 0;
+	padding: 0.5em 1em;
+	border: 2px solid $dark-blue;
+	border-radius:8px;
+	@include font-roboto(normal,$dark-blue,18px);
+	$line-height:35px;
+
+	.cat-wrap{
+		@include span(1.5/10);
+
+		.cat{
+			position: relative;
+			display:block;
+			float:left;
+			border-radius:8px;
+			line-height:$line-height;
+			@include span(9/10);
+			text-align: center;
+		}
+
+		.cat-1{
+			border: 2px solid $light-blue;			
+		}
+		.cat-2{
+			border: 2px solid $red;			
+		}
+		.cat-3{
+			border: 2px solid $orange;			
+		}
+		.cat-4{
+			border: 2px solid $green;			
+		}
+		.cat-5{
+			border: 2px solid $red1;			
+		}
+		.cat-6{
+			border: 2px solid $yellow;			
+		}
+	}
+
+	.event-name{
+		@include span(8/10);	
+		line-height:$line-height;
+		@include font-roboto(normal,$dark-blue,20px);
+	}	
+}
+
+.btn{
+	border: 1px solid $gray;
+	@include font-roboto(normal, inherit, 14pt);
+	padding:0.3em 1em;
+	border-radius:6px;
+}
+
+.event-wrap{
+
+		h1,h3{
+			@include span(1);
+		}		
+
+		.event-title{
+			float:left;
+		}
+
+		.btn-wrap{
+			margin:0 1em;			
+
+			.btn{
+				background: $btn_primary;
+				@include font-roboto(bold,$dark-blue, 15px);								
+			}
+		}
+
+		.event-date{
+			@include span(1);
+
+			.date{
+				margin-right:1em;
+			}
+		}
+
+		.event-title{
+			@include span(1);
+			margin-bottom:2em;
+		}
+
+		.event-info-wrap{
+			@include column(7/10);
+			padding: 1em;		
+			background: $grey;	
+		}
+
+		.event-options{
+			@include column(3/10);
+			padding:2em 1em;
+			background: $grey;
+			
+			.options-wrap{
+				margin-bottom:1em;
+			}
+
+			.btn-join{
+				background:$btn_primary;
+			}
+
+			.btn-exit{
+				background:$btn_fail_color;
+				color:$white;
+			}
+
+			h3{
+				margin:0.5em 0;
+				padding: 0 0.3em;
+			}
+
+			.users-wrap{
+				padding: 0 0.3em;
+				@include span(1);
+
+				li{
+					margin:0.3em 0;
+				}				
+			}
+		}
+}
+
+form{
+	@include span(1/2);
+	input, select, textarea {
+		@include span(1);
+		height:35px;
+		border:2px solid $gray;
+		border-radius:6px;
+		margin:0.2em 0;
+		@include font-roboto(normal, $black, 12pt);
+	}
+	textarea{
+		height:250px;
+		@include span(1);
+	}
+
+	label{
+		@include span(1);
+		margin:0.2em 0;
+	}
+
+	.input-wrap{
+		@include span(1);
+		margin:0.5em 0;
+	}
+
+	.input-err{
+		@include span(1);
+		color:$red1;
+		margin: 0.2em 0.5em;
+	}
+
+	button{
+		@extend .btn;
+		background:$btn_primary;
+
+	}
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class NavigationItem extends Component {
@@ -7,10 +8,12 @@ class NavigationItem extends Component {
         this.props.navigate(name);
     }
 
-    render() {        
-
+    render() {                
         return (
-            <li><a href="#" onClick={this.navigate.bind(this, this.props.item.name)}>{this.props.item.name}</a></li>
+
+        	<Link to={`/c/${this.props.item.id}`}>
+        	<li className="nav-item">{this.props.item.name}</li>
+        	</Link>            
         );
     }
 }
